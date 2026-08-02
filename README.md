@@ -6,7 +6,6 @@ Bukkit/Spigot 系 Minecraft サーバー向けの、**赤チーム vs 青チー�
 
 - **サーバーソフト**: Bukkit / Spigot 系（Paper等含む。BungeeChatAPIを使用しているためSpigot系必須）
 - **対応バージョン**: `plugin.yml` の `api-version` が `1.21` のため、**Minecraft 1.21系**サーバーでの利用を想定しています（プラグイン自体は `0.1-beta`版）。
-- **依存プラグイン**: `plugin.yml` 上では他プラグインへの依存(`depend`/`softdepend`)は宣言されていませんが、**同梱の `gui.yml` サンプル設定は銃器プラグイン(`shot give ...` コマンドを処理する、いわゆる「Shot」系ガンプラグイン)の導入を前提にしています**。銃プラグインなしで使う場合は、`gui.yml` の `commands` をバニラアイテムの `give` コマンド等に書き換えてください。
 - **権限**: `/domination` コマンド全体に `domination.admin` 権限が必要です(`plugin.yml` で宣言済み)。デフォルトでは op のみ実行可能なので、一般運営者に開放する場合は権限管理プラグインで付与してください。
 - **リソースパックの要否**: プラグイン本体としては**不要**（カスタムテクスチャ等は使用せずバニラの見た目で動作）。ただし銃プラグインを導入する場合は、そちら側でリソースパックが必要になることがあります(銃プラグイン側の仕様に依存するため本プラグインのコード上では確認できません)。
 - **チーム数**: 赤（red）／青（blue）の**2チーム固定**です。
@@ -99,42 +98,36 @@ class-menu:
   items:
     Assault:
       slot: 11
-      material: STONE_HOE
+      material: DIAMOND_SWORD
       name: "&c&l突撃兵"
       lore:
-        - "&7近接攻撃特化のサブマシンガンをメイン武器とする兵科。"
+        - "&7ダイヤモンドの剣と盾をメインとする兵科。"
         - "&eクリックで選択"
       commands:
-        - "shot give %player% thompsonm1a1"
-        - "give %player% minecraft:iron_ingot 208"
+        - "give %player% minecraft:diamond_sword"
+        - "give %player% minecraft:diamond_sword"
     Support:
-      slot: 13 # 重複を避けるために13に変更
-      material: GOLDEN_HOE
+      slot: 13
+      material: DIAMOND_AXE
       name: "&b&l援護兵"
       lore:
-        - "&7中距離攻撃特化のオートマチックライフルをメイン武器とする兵科。"
+        - "&7盾を持つ援護特化の。"
         - "&eクリックで選択"
       commands:
-        - "shot give %player% m1garand"
-        - "give %player% minecraft:gold_ingot 96"
-        - "give %player% minecraft:iron_ingot 16"
+        - "give %player% minecraft:Diamond_axe"
     Sniper:
       slot: 15
-      material: DIAMOND_HOE
-      name: "&e&l狙撃兵"
+      material: BOW
+      name: "&e&l遠距離兵"
       lore:
-        - "&7遠距離攻撃特化のボルトアクションライフルをメイン武器とする兵科。"
+        - "&7弓矢をメインとする兵科。"
         - "&eクリックで選択"
       commands:
-        - "shot give %player% springfieldm1903"
-        - "give %player% minecraft:gold_ingot 16"
-        - "give %player% minecraft:iron_ingot 16"
+        - "give %player% minecraft:bow"
+        - "give %player% minecraft:arrow 64"
 ```
 
 - `commands` には、コンソール権限で実行されるコマンドを自由に記述できます（`%player%` はクリックしたプレイヤー名に置換）。**兵科の中身（配布アイテム・効果など）はこのファイルだけで自由にカスタマイズできます。**
-- 上記の例では `shot give %player% <銃名>` というコマンドが使われており、**別途「Shot」系の銃器プラグインの導入が前提**になっています。銃プラグインを使わない場合は、この行を削除するかバニラの `give` コマンドに置き換えてください。
-- `material` にはメニュー上のアイコンとして `STONE_HOE`（ツルハシではなくクワ）等が使われており、実際に配布されるアイテム（銃・素材）とは別物です。GUI上の見た目用アイコンとして自由に選べます。
-- 起動後に設定を変更した場合は `/domination reload` で反映できます。
 
 ## コマンド・権限
 
