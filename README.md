@@ -91,7 +91,7 @@ points:
 # 兵科選択GUIの設定
 class-menu:
   title: "&l兵科選択"
-  rows: 3  # 行数 (1-6)
+  rows: 3
   items:
     Assault:
       slot: 11
@@ -106,7 +106,7 @@ class-menu:
         - "shot give %player% coltm1911"
         - "give %player% minecraft:iron_ingot 208"
     Support:
-      slot: 13 # 重複を避けるために13に変更
+      slot: 13
       material: GOLDEN_HOE
       name: "&b&l援護兵"
       lore:
