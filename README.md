@@ -95,33 +95,42 @@ class-menu:
   items:
     Assault:
       slot: 11
-      material: DIAMOND_SWORD
+      material: STONE_HOE
       name: "&c&l突撃兵"
       lore:
-        - "&7ダイヤモンドの剣と盾をメインとする兵科。"
+        - "&7近接攻撃特化のサブマシンガンをメイン武器とする兵科。"
         - "&eクリックで選択"
       commands:
-        - "give %player% minecraft:diamond_sword"
-        - "give %player% minecraft:diamond_sword"
+        - "minecraft:clear %player% minecraft:enchanted_book"
+        - "shot give %player% thompsonm1a1"
+        - "shot give %player% coltm1911"
+        - "give %player% minecraft:iron_ingot 208"
     Support:
-      slot: 13
-      material: DIAMOND_AXE
+      slot: 13 # 重複を避けるために13に変更
+      material: GOLDEN_HOE
       name: "&b&l援護兵"
       lore:
-        - "&7盾を持つ援護特化の。"
+        - "&7中距離攻撃特化のオートマチックライフルをメイン武器とする兵科。"
         - "&eクリックで選択"
       commands:
-        - "give %player% minecraft:Diamond_axe"
+        - "minecraft:clear %player% minecraft:enchanted_book"
+        - "shot give %player% m1garand"
+        - "shot give %player% coltm1911"
+        - "give %player% minecraft:gold_ingot 96"
+        - "give %player% minecraft:iron_ingot 16"
     Sniper:
       slot: 15
-      material: BOW
-      name: "&e&l遠距離兵"
+      material: DIAMOND_HOE
+      name: "&e&l狙撃兵"
       lore:
-        - "&7弓矢をメインとする兵科。"
+        - "&7遠距離攻撃特化のボルトアクションライフルをメイン武器とする兵科。"
         - "&eクリックで選択"
       commands:
-        - "give %player% minecraft:bow"
-        - "give %player% minecraft:arrow 64"
+        - "minecraft:clear %player% minecraft:enchanted_book"
+        - "shot give %player% springfieldm1903"
+        - "shot give %player% coltm1911"
+        - "give %player% minecraft:gold_ingot 16"
+        - "give %player% minecraft:iron_ingot 16"
 ```
 
 - `commands` には、コンソール権限で実行されるコマンドを自由に記述できます。`%player%` にはクリックしたプレイヤー名が代入されます。**兵科によって変わる配布物の中身をこのファイルだけで自由にカスタマイズできます。**
