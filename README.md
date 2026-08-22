@@ -142,6 +142,7 @@ class-menu:
 | `/domination start` | ゲームを即座に開始（カウントダウン省略） | `domination.admin` |
 | `/domination stop` | ゲームを強制終了し、その時点のスコアで勝敗を判定 | `domination.admin` |
 | `/domination reload` | `config.yml` と `gui.yml` を再読込 | `domination.admin` |
+| `/domination team <player名> join <チーム名(red or blue)>` |指定したプレイヤーの所属チームを変更し、変更先のチームのスポーン地点にテレポートさせる。| `domination.admin` |
 ※基本的に`domination.admin` の権限はOP権限を持つプレイヤーしか持てません。
 
 ## ゲームの流れ
